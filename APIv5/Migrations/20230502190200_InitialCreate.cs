@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -14,7 +15,7 @@ namespace APIv5.Migrations
                 name: "Cards",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false),
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     LicensePlate = table.Column<string>(name: "License Plate", type: "nvarchar(50)", maxLength: 50, nullable: true),
                     ImagePath = table.Column<string>(name: "Image Path", type: "nvarchar(max)", nullable: true)

@@ -28,4 +28,10 @@
   <ItemGroup>
     <Compile Remove="Models\UserInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
 </Project>

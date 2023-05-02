@@ -11,16 +11,16 @@ namespace APIv5.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CardsController : ControllerBase
+    public class CardController : ControllerBase
     {
         private readonly CarlineDataContext _context;
 
-        public CardsController(CarlineDataContext context)
+        public CardController(CarlineDataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Cards
+        // GET: api/Card
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Card>>> GetCards()
         {
@@ -31,9 +31,9 @@ namespace APIv5.Controllers
             return await _context.Cards.ToListAsync();
         }
 
-        // GET: api/Cards/5
+        // GET: api/Card/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Card>> GetCard(int id)
+        public async Task<ActionResult<Card>> GetCard(Guid id)
         {
           if (_context.Cards == null)
           {
@@ -49,10 +49,10 @@ namespace APIv5.Controllers
             return card;
         }
 
-        // PUT: api/Cards/5
+        // PUT: api/Card/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCard(int id, Card card)
+        public async Task<IActionResult> PutCard(Guid id, Card card)
         {
             if (id != card.Id)
             {
@@ -80,7 +80,7 @@ namespace APIv5.Controllers
             return NoContent();
         }
 
-        // POST: api/Cards
+        // POST: api/Card
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Card>> PostCard(Card card)
@@ -109,9 +109,9 @@ namespace APIv5.Controllers
             return CreatedAtAction("GetCard", new { id = card.Id }, card);
         }
 
-        // DELETE: api/Cards/5
+        // DELETE: api/Card/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCard(int id)
+        public async Task<IActionResult> DeleteCard(Guid id)
         {
             if (_context.Cards == null)
             {
@@ -129,7 +129,7 @@ namespace APIv5.Controllers
             return NoContent();
         }
 
-        private bool CardExists(int id)
+        private bool CardExists(Guid id)
         {
             return (_context.Cards?.Any(e => e.Id == id)).GetValueOrDefault();
         }
