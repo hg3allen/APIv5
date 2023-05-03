@@ -12,4 +12,6 @@ public partial class Card
     public string? LicensePlate { get; set; }
 
     public string? ImagePath { get; set; }
+
+    public DateTime? TimeIntoQueue { get; set; }
 }

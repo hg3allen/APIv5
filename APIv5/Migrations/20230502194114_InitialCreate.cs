@@ -18,7 +18,8 @@ namespace APIv5.Migrations
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     LicensePlate = table.Column<string>(name: "License Plate", type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    ImagePath = table.Column<string>(name: "Image Path", type: "nvarchar(max)", nullable: true)
+                    ImagePath = table.Column<string>(name: "Image Path", type: "nvarchar(max)", nullable: true),
+                    TimeIntoQueue = table.Column<DateTime>(name: "Time Into Queue", type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

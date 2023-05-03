@@ -41,6 +41,10 @@ namespace APIv5.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<DateTime?>("TimeIntoQueue")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Time Into Queue");
+
                     b.HasKey("Id");
 
                     b.ToTable("Cards");

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIv5.Migrations
 {
     [DbContext(typeof(CarlineDataContext))]
-    [Migration("20230502190200_InitialCreate")]
+    [Migration("20230502194114_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -43,6 +43,10 @@ namespace APIv5.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("TimeIntoQueue")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Time Into Queue");
 
                     b.HasKey("Id");
 

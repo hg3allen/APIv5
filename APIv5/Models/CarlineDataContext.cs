@@ -27,11 +27,13 @@ public partial class CarlineDataContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("ID");
+            entity.Property(e => e.TimeIntoQueue).HasColumnName("Time Into Queue");
             entity.Property(e => e.ImagePath).HasColumnName("Image Path");
             entity.Property(e => e.LicensePlate)
                 .HasMaxLength(50)
                 .HasColumnName("License Plate");
             entity.Property(e => e.Name).HasMaxLength(50);
+            
         });
 
         OnModelCreatingPartial(modelBuilder);
